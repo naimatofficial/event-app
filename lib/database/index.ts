@@ -11,6 +11,8 @@ export const connectToDatabase = async () => {
 
 	if (!MONGODB_URI) throw new Error("MONGODB_URI is missing!");
 
+	console.log(MONGODB_URI);
+
 	// If a promise to connect to the database already exists, reuse it;
 	// otherwise, create a new promise and connect to the database
 	cached.promise =
@@ -22,6 +24,8 @@ export const connectToDatabase = async () => {
 
 	// Wait for the database connection to be established and assign it to the cached connection
 	cached.conn = await cached.promise;
+
+	console.log(cached);
 
 	// Return the established database connection
 	return cached.conn;
