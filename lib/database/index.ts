@@ -30,3 +30,8 @@ export const connectToDatabase = async () => {
 	// Return the established database connection
 	return cached.conn;
 };
+
+export const isDatabaseConnected = () => {
+	return mongoose.connection.readyState === 1;
+};
+
